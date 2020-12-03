@@ -1,4 +1,4 @@
-package com.codeclan.example.CourseBookingsJavaSpring;
+package com.codeclan.example.CourseBookingsJavaSpring.controllers;
 
 import com.codeclan.example.CourseBookingsJavaSpring.repositories.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
