@@ -35,7 +35,10 @@ public class Customer {
     }
 
     public Customer(){
+    }
 
+    public void saveBooking(Booking booking){
+        this.bookings.add(booking);
     }
 
     public Long getId() {
