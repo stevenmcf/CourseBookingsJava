@@ -38,7 +38,7 @@ class CourseBookingsJavaSpringApplicationTests {
 
 	@Test
 	public void canGetCustomer(){
-		List<Course> foundCustomer = courseRepository.findByBookingsCustomerName("Harrison");
+		List<Course> foundCustomer = courseRepository.findByBookingsCustomerNameIgnoreCase("Harrison");
 		assertEquals(3, foundCustomer.size());
 	}
 

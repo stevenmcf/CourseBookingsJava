@@ -10,5 +10,5 @@ import java.util.List;
 @Repository
 public interface CourseRepository extends JpaRepository <Course, Long> {
 List<Course> findByStarRating(Integer starRating);
-List<Course> findByBookingsCustomerName(String name);
+List<Course> findByBookingsCustomerNameIgnoreCase(String name);
 }
