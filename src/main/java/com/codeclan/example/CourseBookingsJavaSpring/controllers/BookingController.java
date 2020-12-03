@@ -18,9 +18,12 @@ public class BookingController {
     BookingRepository bookingRepository;
 
     @GetMapping(value = "/bookings")
-    public ResponseEntity<List<Booking>> getAllBookings(@RequestParam(name="date", required = false) String date){
+    public ResponseEntity<List<Booking>> getAllBookings(@RequestParam(name="date", required = false) String date, @RequestParam(name="name", required = false)String name){
         if (date != null) {
             return new ResponseEntity<>(bookingRepository.findByDate(date), HttpStatus.OK);
+        }
+        if (name != null) {
+            return new ResponseEntity<>(bookingRepository.findCustomerByCourseName(name), HttpStatus.OK);
         }
         return new ResponseEntity<>(bookingRepository.findAll(), HttpStatus.OK);
     }
