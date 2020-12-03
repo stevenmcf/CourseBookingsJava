@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "customers")
@@ -15,7 +16,7 @@ public class Customer {
 
     @Column(name="name")
     private String name;
-    @column(name="town")
+    @Column(name="town")
     private String town;
     @Column(name="age")
     private int age;
@@ -23,7 +24,7 @@ public class Customer {
 
     @JsonIgnoreProperties({"customers"})
     @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
-    private List <Booking> bookings;
+    private List<Booking> bookings;
 
 
     public Customer(String name, String town, int age) {
