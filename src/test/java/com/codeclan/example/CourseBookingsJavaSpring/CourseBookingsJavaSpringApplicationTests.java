@@ -36,11 +36,11 @@ class CourseBookingsJavaSpringApplicationTests {
 		assertEquals(1, foundCourse.size());
 	}
 
-//	@Test
-//	public void canGetCustomer(){
-//		List<Course> foundCustomer = courseRepository.findByCustomerName("Harrison");
-//		assertEquals(3, foundCustomer.size());
-//	}
+	@Test
+	public void canGetCustomer(){
+		List<Course> foundCustomer = courseRepository.findByBookingsCustomerName("Harrison");
+		assertEquals(3, foundCustomer.size());
+	}
 
 	@Test
 	public void canGetCustomerByCourseName(){
