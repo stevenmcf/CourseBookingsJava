@@ -2,6 +2,7 @@ package com.codeclan.example.CourseBookingsJavaSpring;
 
 import com.codeclan.example.CourseBookingsJavaSpring.models.Booking;
 import com.codeclan.example.CourseBookingsJavaSpring.models.Course;
+import com.codeclan.example.CourseBookingsJavaSpring.models.Customer;
 import com.codeclan.example.CourseBookingsJavaSpring.repositories.BookingRepository;
 import com.codeclan.example.CourseBookingsJavaSpring.repositories.CourseRepository;
 import com.codeclan.example.CourseBookingsJavaSpring.repositories.CustomerRepository;
@@ -46,5 +47,11 @@ class CourseBookingsJavaSpringApplicationTests {
 	public void canGetCustomerByCourseName(){
 		List<Booking> foundCustomer = bookingRepository.findCustomerByCourseName("Intro to coding");
 		assertEquals(2, foundCustomer.size());
+	}
+
+	@Test
+	public void canGetCustByTownAndCourse(){
+		List<Customer> foundCustomer = customerRepository.findByTownIgnoreCaseAndBookingsCourseNameIgnoreCase("Glasgow", "Intro to coding");
+		assertEquals(1, foundCustomer.size());
 	}
 }

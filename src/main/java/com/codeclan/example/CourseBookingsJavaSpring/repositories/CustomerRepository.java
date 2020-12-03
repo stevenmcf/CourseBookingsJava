@@ -9,5 +9,7 @@ import java.util.List;
 @Repository
 public interface CustomerRepository extends JpaRepository <Customer, Long> {
     List<Customer> findCustomersByBookingsCourseName(String name);
+//    Get all customers in a given town for a given course
+    List<Customer> findByTownIgnoreCaseAndBookingsCourseNameIgnoreCase(String town, String name);
 
 }
