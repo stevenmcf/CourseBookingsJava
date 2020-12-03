@@ -36,4 +36,7 @@ public class BookingController {
         return new ResponseEntity<>(newBooking, HttpStatus.CREATED);
     }
 
+    @DeleteMapping
+
+
 }
