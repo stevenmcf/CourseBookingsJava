@@ -46,25 +46,15 @@ public class CustomerController {
         return new ResponseEntity<Void>(HttpStatus.OK);
     }
 
-    @PutMapping("/customers/{id}/edit")
+    @PutMapping("/customers/{id}")
     public ResponseEntity<Void>customerToChange(@RequestBody Customer customer, @PathVariable("id") Long id){
         customerRepository.save(customer);
         return new ResponseEntity<Void>(HttpStatus.OK);
     }
 
-//    @PutMapping("/heavyresource/{id}")
-//    public ResponseEntity<?> saveResource(@RequestBody HeavyResource heavyResource,
-//                                          @PathVariable("id") String id) {
-//        heavyResourceRepository.save(heavyResource, id);
-//        return ResponseEntity.ok("resource saved");
-//    }
-
-//    @PatchMapping("/heavyresource/{id}")
-//    public ResponseEntity<?> partialUpdateName(
-//            @RequestBody HeavyResourceAddressOnly partialUpdate, @PathVariable("id") String id) {
-//
-//        heavyResourceRepository.save(partialUpdate, id);
-//        return ResponseEntity.ok("resource address updated");
-//    }
+    @PatchMapping("/customers/{id}/edit")
+    public ResponseEntity<Void>customerToUpdate(@RequestBody Customer partialUpdate, @PathVariable("id") Long id){
+        customerRepository.save(partialUpdate);
+        return new ResponseEntity<Void>(HttpStatus.OK);
 
 }
