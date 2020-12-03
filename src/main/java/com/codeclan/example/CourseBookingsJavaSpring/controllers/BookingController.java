@@ -39,7 +39,7 @@ public class BookingController {
     }
 
     @DeleteMapping("/bookings/{id}/delete")
-    public ResponseEntity<Void>delete(@PathVariable  Long id){
+    public ResponseEntity<Void>delete(@PathVariable Long id){
         bookingRepository.deleteById(id);
         return new ResponseEntity<Void>(HttpStatus.OK);
     }
