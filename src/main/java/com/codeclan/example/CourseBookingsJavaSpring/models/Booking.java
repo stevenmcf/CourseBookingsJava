@@ -1,6 +1,7 @@
 package com.codeclan.example.CourseBookingsJavaSpring.models;
 
 import com.codeclan.example.CourseBookingsJavaSpring.CourseBookingsJavaSpringApplication;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -20,11 +21,13 @@ public class Booking {
 
     @ManyToOne
     @JsonIgnoreProperties({"bookings"})
+//    @JsonBackReference
     @JoinColumn(name="customer_id")
     private Customer customer;
 
     @ManyToOne
     @JsonIgnoreProperties({"bookings"})
+//    @JsonBackReference
     @JoinColumn(name="course_id")
     private Course course;
 

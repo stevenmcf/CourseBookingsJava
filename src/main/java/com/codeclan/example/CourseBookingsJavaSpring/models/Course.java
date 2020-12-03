@@ -1,5 +1,6 @@
 package com.codeclan.example.CourseBookingsJavaSpring.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -23,7 +24,8 @@ public class Course {
     private int starRating;
 
     @OneToMany(mappedBy = "course", fetch = FetchType.LAZY)
-    @JsonIgnoreProperties({"courses"})
+//    @JsonIgnoreProperties({"courses"})
+    @JsonBackReference
     private List<Booking> bookings;
 
 
@@ -32,6 +34,10 @@ public class Course {
         this.location = location;
         this.starRating = starRating;
         this.bookings = new ArrayList<>();
+    }
+
+    public void saveBookingToCourse(Booking booking){
+        this.bookings.add(booking);
     }
 
     public List<Booking> getBookings() {

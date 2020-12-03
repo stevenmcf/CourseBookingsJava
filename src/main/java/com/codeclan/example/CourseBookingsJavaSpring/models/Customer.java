@@ -1,5 +1,6 @@
 package com.codeclan.example.CourseBookingsJavaSpring.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -22,7 +23,8 @@ public class Customer {
     private int age;
 
 
-    @JsonIgnoreProperties({"customers"})
+//    @JsonIgnoreProperties({"customers"})
+    @JsonBackReference
     @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
     private List<Booking> bookings;
 
@@ -37,7 +39,7 @@ public class Customer {
     public Customer(){
     }
 
-    public void saveBooking(Booking booking){
+    public void saveBookingToCustomer(Booking booking){
         this.bookings.add(booking);
     }
 
