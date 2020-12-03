@@ -1,5 +1,6 @@
 package com.codeclan.example.CourseBookingsJavaSpring.models;
 
+import com.codeclan.example.CourseBookingsJavaSpring.CourseBookingsJavaSpringApplication;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -22,9 +23,19 @@ public class Booking {
     @JoinColumn(name="customer_id")
     private Customer customer;
 
-    public Booking(String date, Customer customer) {
+    @ManyToOne
+    @JsonIgnoreProperties({"bookings"})
+    @JoinColumn(name="course_id")
+    private Course course;
+
+    public Booking(String date, Customer customer, Course course) {
         this.date = date;
         this.customer = customer;
+        this.course = course;
+    }
+
+    public Booking(){
+
     }
 
     public Customer getCustomer() {
@@ -43,9 +54,7 @@ public class Booking {
         this.id = id;
     }
 
-    public Booking(){
 
-    }
 
     public String getDate() {
         return date;
@@ -53,5 +62,13 @@ public class Booking {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
     }
 }
