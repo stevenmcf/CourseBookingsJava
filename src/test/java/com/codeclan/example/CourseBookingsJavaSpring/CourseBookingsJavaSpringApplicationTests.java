@@ -1,5 +1,6 @@
 package com.codeclan.example.CourseBookingsJavaSpring;
 
+import com.codeclan.example.CourseBookingsJavaSpring.models.Booking;
 import com.codeclan.example.CourseBookingsJavaSpring.models.Course;
 import com.codeclan.example.CourseBookingsJavaSpring.repositories.BookingRepository;
 import com.codeclan.example.CourseBookingsJavaSpring.repositories.CourseRepository;
@@ -35,4 +36,15 @@ class CourseBookingsJavaSpringApplicationTests {
 		assertEquals(1, foundCourse.size());
 	}
 
+//	@Test
+//	public void canGetCustomer(){
+//		List<Course> foundCustomer = courseRepository.findByCustomerName("Harrison");
+//		assertEquals(3, foundCustomer.size());
+//	}
+
+	@Test
+	public void canGetCustomerByCourseName(){
+		List<Booking> foundCustomer = bookingRepository.findCustomerByCourseName("Intro to coding");
+		assertEquals(2, foundCustomer.size());
+	}
 }
