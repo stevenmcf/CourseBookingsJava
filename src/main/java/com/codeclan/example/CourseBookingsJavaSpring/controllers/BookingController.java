@@ -38,11 +38,11 @@ public class BookingController {
         return new ResponseEntity<>(newBooking, HttpStatus.CREATED);
     }
 
-//    @DeleteMapping("/bookings/{id}/delete")
-//    public ResponseEntity<Void>delete(@PathVariable Booking booking){
-//        bookingRepository.delete(booking);
-//        return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
-//    }
+    @DeleteMapping("/bookings/{id}/delete")
+    public ResponseEntity<Void>delete(@PathVariable  Long id){
+        bookingRepository.deleteById(id);
+        return new ResponseEntity<Void>(HttpStatus.OK);
+    }
 
 
 }
